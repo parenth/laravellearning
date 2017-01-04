@@ -5,7 +5,7 @@
 
 <br>
 
-# Xblog
+# laravel learn blog
 
 [中文Readme](README_zh.md)|
 
