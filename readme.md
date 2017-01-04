@@ -2,12 +2,12 @@
 
 </p>
 <p align="center">Powerful and responsive blog system powered by laravel 5.3. Click  to view live demo.</p>
-<p align="center"><img src="images/main1.png"  width="800"><p>
+
 <br>
 
 # Xblog
 
-[中文Readme](README_zh.md)| 
+[中文Readme](README_zh.md)|
 
 This blog is for my own use. I used to use hexo and github pages as my blog, but it's not flexible. Thus I write this
 blog. What I want to say is laravel is the best php framework I've ever seen.
