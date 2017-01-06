@@ -9,16 +9,17 @@ class GatherController extends Controller
 {
     //
     public function index(){
-        $page = "https://laravel-china.org/users/2233/topics?page=1";
+        //$page = "https://laravel-china.org/users/2233/topics?page=1";
+        $page = "http://data.10jqka.com.cn/financial/yjgg/op/code/code/000568/ajax/1/";
 
         $rule = array(
-            'title'=>['.list-group-item>a','text'],
-            'url'=>['.list-group-item>a','href']
+            'title'=>['td','text'],
+           // 'url'=>['.list-group-item>a','href']
         );
 
         //$rang = ".list-group>li";
 
-        $data = QueryList::Query($page,$rule)->getData(function($item){return $item;});
+        $data = QueryList::Query($page,$rule,'','UTF-8','GB2312',true)->getData(function($item){return $item;});
 
         foreach ($data as $item) {
             echo $item['title'].'----<br/>';
@@ -27,24 +28,24 @@ class GatherController extends Controller
         //var_dump($data);
 
 
-        $page = "http://www.investdata.info/profitability/profitability!ROA.action?code=000568&indexName=%E8%B5%84%E4%BA%A7%E5%87%80%E5%88%A9%E7%8E%87";
+        //$page = "http://www.investdata.info/profitability/profitability!ROA.action?code=000568&indexName=%E8%B5%84%E4%BA%A7%E5%87%80%E5%88%A9%E7%8E%87";
 
 
 
-        $pagecontent = file_get_contents($page);
-
-        //var_dump($pagecontent);
-
-        $patten = "/\[.*\]/";
-        //$patten = "/\{.*\}/";
-        $str = $this->getVarInjs($pagecontent,$patten);
-        foreach ($str as $key=>$item){
-            $str[$key] = $this->splitstr($item);
-        }
-        $year = explode(',',$str[2]);
-        var_dump($year);
-        $score = explode(',',$str[3]);
-        var_dump($score);
+//        $pagecontent = file_get_contents($page);
+//
+//        //var_dump($pagecontent);
+//
+//        $patten = "/\[.*\]/";
+//        //$patten = "/\{.*\}/";
+//        $str = $this->getVarInjs($pagecontent,$patten);
+//        foreach ($str as $key=>$item){
+//            $str[$key] = $this->splitstr($item);
+//        }
+//        $year = explode(',',$str[2]);
+//        var_dump($year);
+//        $score = explode(',',$str[3]);
+//        var_dump($score);
 
 
 
@@ -77,9 +78,11 @@ class GatherController extends Controller
         var_dump($score);
     }
 
-    public function gathergoods(){
+   public function gathergoods(){
         $page = "http://www.investdata.info/profitability/profitability!ROA.action?code=000568&indexName=%E8%B5%84%E4%BA%A7%E5%87%80%E5%88%A9%E7%8E%87";
-
+//        http://data.10jqka.com.cn/financial/yjgg/op/code/code/000568/ajax/1/
+//        http://data.10jqka.com.cn/financial/yjgg/op/code/code/000568/page/2/ajax/1/
+        //$page = "http://data.10jqka.com.cn/financial/yjgg/op/code/code/000568/ajax/1/";
         $pagecontent = file_get_contents($page);
 
         $patten = "/\{.*\}/";
@@ -93,8 +96,10 @@ class GatherController extends Controller
             $goods[] = json_decode($str);
         }
 
-        
-        //var_dump($goods);
+
+       foreach ($goods as $item) {
+           echo $item->value.'<br/>';
+        }
     }
 
     function getVarInjs($str,$patten,$withType = true)
