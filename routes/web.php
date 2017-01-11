@@ -39,6 +39,7 @@ Route::get('/blog/{slug}', ['uses' => 'PostController@show', 'as' => 'post.show'
 Route::get('gather',['uses' => 'GatherController@index', 'as'=>'gather.index']);
 Route::get('gather/gathergoods',['uses' => 'GatherController@gathergoods', 'as'=>'gather.gathergoods']);
 Route::get('gather/gathergoodsprice',['uses' => 'GatherController@gathergoodsprice', 'as'=>'gather.gathergoodsprice']);
+Route::get('gather/getall',['uses' => 'GatherController@getall', 'as'=>'gather.getall']);
 
 // Category
 Route::get('/category/{name}', ['uses' => 'CategoryController@show', 'as' => 'category.show']);
