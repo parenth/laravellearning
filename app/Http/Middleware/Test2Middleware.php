@@ -16,8 +16,9 @@ class Test2Middleware
     public function handle($request, Closure $next)
     {
         echo 'Middleware handle 2222222';
+        \Log::info('test2 middleware');
         $response = $next($request);
-
+        \Log::info('test2  after middleware');
         return $response;
     }
 }

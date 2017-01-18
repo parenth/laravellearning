@@ -20,6 +20,7 @@ class CategoryRepository extends Repository
     static $tag = 'category';
     public function model()
     {
+        \Log::info('category Repository model');
         return app(Category::class);
     }
 

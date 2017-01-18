@@ -34,11 +34,13 @@ class PostRepository extends Repository
      */
     public function __construct(MarkDownParser $markDownParser)
     {
+        \Log::info('post Repository construct');
         $this->markDownParser = $markDownParser;
     }
 
     public function model()
     {
+        \Log::info('post Repository model');
         return app(Post::class);
     }
 

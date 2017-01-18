@@ -27,6 +27,7 @@ abstract class Repository
         if ($this->xblogCache == null) {
            
             $this->xblogCache = app('XblogCache');
+            //var_dump($this->xblogCache);
             $this->xblogCache->setTag($this->tag());
             $this->xblogCache->setTime($this->cacheTime());
         }

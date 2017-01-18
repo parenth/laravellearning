@@ -66,6 +66,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 // 初始化 kernel （核心）对象
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 // kernel->handle  方法 把请求参数转换为输出对象response.
+
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );

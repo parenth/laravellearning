@@ -11,10 +11,10 @@ use QL\QueryList;
 class GatherController extends Controller
 {
     //2016-10-27----
-//58.81亿----
+//58.81----
 //17.30----
 //-21.59----
-//15.06亿----
+//15.06----
 //13.72----
 //-25.47----
 //1.07----
@@ -127,7 +127,7 @@ class GatherController extends Controller
                     //echo $key.'----';
                     unset($arr['o']);
                     $arr['code'] = $code;
-                    Temp1::create($arr);
+                    //Temp1::create($arr);
                     //$goods_arr[] = $arr;
                     //var_dump($arr);
                 }

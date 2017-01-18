@@ -48,7 +48,7 @@ class AdminController extends Controller
                                 ImageRepository $imageRepository,
                                 MapRepository $mapRepository)
     {
-
+        \Log::info('adminController');
         $this->postRepository = $postRepository;
         $this->commentRepository = $commentRepository;
         $this->userRepository = $userRepository;
@@ -57,6 +57,7 @@ class AdminController extends Controller
         $this->pageRepository = $pageRepository;
         $this->imageRepository = $imageRepository;
         $this->mapRepository = $mapRepository;
+        \Log::info('adminController2');
         $this->middleware(['auth', 'admin']);
     }
 
@@ -67,6 +68,7 @@ class AdminController extends Controller
         $info['post_count'] = $this->postRepository->count();
         $info['comment_count'] = $this->commentRepository->count();
         $info['user_count'] = $this->userRepository->count();
+        \Log::info('adminController.index');
         $info['category_count'] = $this->categoryRepository->count();
         $info['tag_count'] = $this->tagRepository->count();
         $info['page_count'] = $this->pageRepository->count();

@@ -29,7 +29,7 @@ class Kernel extends HttpKernel
     //  如果是前缀中间件，按下面顺序执行，如果是后缀，则会倒序执行。
     protected $middlewareGroups = [
         'web' => [
-            //\App\Http\Middleware\Test2Middleware::class,
+            \App\Http\Middleware\Test2Middleware::class,
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,

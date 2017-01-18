@@ -17,6 +17,7 @@ class CategoryController extends Controller
      */
     public function __construct(CategoryRepository $categoryRepository)
     {
+        //\Log::info('cate construct',$this->object2array($categoryRepository));
         $this->categoryRepository = $categoryRepository;
         $this->middleware(['auth', 'admin'], ['except' => ['show','index']]);
     }
@@ -63,6 +64,7 @@ class CategoryController extends Controller
      */
     public function show($name)
     {
+
         $category = $this->categoryRepository->get($name);
         $page_size = $page_size = XblogConfig::getValue('page_size', 7);
         $posts = $this->categoryRepository->pagedPostsByCategory($category, $page_size);
@@ -78,6 +80,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
+
         return view('category.edit', compact('category'));
     }
 
@@ -94,12 +97,18 @@ class CategoryController extends Controller
         $this->validate($request, [
             'name' => 'required|unique:categories',
         ]);
-
+        var_dump($this->categoryRepository);
+        dd($this->categoryRepository);
         if ($this->categoryRepository->update($request, $category)) {
             return redirect()->route('admin.categories')->with('success', '分类' . $request['name'] . '修改成功');
         }
 
         return back()->withInput()->withErrors('分类' . $request['name'] . '修改失败');
+    }
+
+    function object2array(&$object) {
+        $object =  json_decode( json_encode( $object),true);
+        return  $object;
     }
 
     /**

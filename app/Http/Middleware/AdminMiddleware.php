@@ -15,6 +15,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
+        \Log::info('route middleware');
         if (!isAdmin($request->user()))
             abort(404);
         return $next($request);

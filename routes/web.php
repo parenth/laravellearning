@@ -40,6 +40,8 @@ Route::get('gather',['uses' => 'GatherController@index', 'as'=>'gather.index']);
 Route::get('gather/gathergoods',['uses' => 'GatherController@gathergoods', 'as'=>'gather.gathergoods']);
 Route::get('gather/gathergoodsprice',['uses' => 'GatherController@gathergoodsprice', 'as'=>'gather.gathergoodsprice']);
 Route::get('gather/getall',['uses' => 'GatherController@getall', 'as'=>'gather.getall']);
+// test
+Route::resource('test','TestController');
 
 // Category
 Route::get('/category/{name}', ['uses' => 'CategoryController@show', 'as' => 'category.show']);
@@ -101,6 +103,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/images', ['uses' => 'ImageController@images', 'as' => 'admin.images']);
     Route::get('/files', ['uses' => 'FileController@files', 'as' => 'admin.files']);
 
+    /*
+     * goods
+     */
+    Route::get('/goods',['uses' =>'GoodsController@index','as' =>'goods.index']);
     /**
      * comment
      */

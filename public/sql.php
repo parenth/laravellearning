@@ -1,0 +1,83 @@
+select count(*) from after_sale   where created>=1451577600 and created<1483200000;
+select count(*) from after_sale_dispose    where created>=1451577600 and created<1483200000;
+select count(*) from after_sale_goods   where created>=1451577600 and created<1483200000;
+select count(*) from after_sale_img   where created>=1451577600 and created<1483200000;
+select count(*) from app_activity   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_activity_rule_full_gift   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_activity_rule_full_gift_goods   where created>=1451577600 and created<1483200000;
+select count(*) from app_activity_rule_package   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_activity_rule_package_goods   where created>=1451577600 and created<1483200000;
+select count(*) from app_activity_rule_special   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_ad   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_menu_config   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_notice   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_push_log   where time>=1451577600 and time<1483200000;
+select count(*) from app_push_tasks   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_start_ad   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from app_update   where update_time>=1451577600 and update_time<1483200000;
+select count(*) from area;
+select count(*) from area_group;
+select count(*) from area_type_log   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from astar_orders   where `create`>=1451577600 and `create`<1483200000;
+select count(*) from astar_orders_2016    where `create`>=1451577600 and `create`<1483200000;
+select count(*) from bad_account;
+select count(*) from bank_account;
+select count(*) from captcha   where created>=1451577600 and created<1483200000;
+select count(*) from coupon   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from coupon_detail;
+select count(*) from district;
+select count(*) from district_circle;
+select count(*) from employee;
+select count(*) from employee_department;
+select count(*) from favorite   where created>=1451577600 and created<1483200000;
+select count(*) from feedback   where created>=1451577600 and created<1483200000;
+select count(*) from feedback_img   where created>=1451577600 and created<1483200000;
+
+select count(*) from goods;
+select count(*) from goods_adjust_price   where input_date>=1451577600 and input_date<1483200000;
+select count(*) from goods_hot   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from goods_import   ;
+
+select count(*) from goods_search_keys where `time`>=1451577600 and `time`< 1483200000;
+select count(*) from goods_supplier;
+select count(*) from goods_type;
+
+select count(*) from integral_detail   where input_time>=1451577600 and input_time<1483200000;
+select count(*) from integral_summary;
+
+select count(*) from new_stock_balance_history   where input_time>=1451577600 and input_time<1483200000;
+select count(*) from new_stock_import_balance   where input_time>=1451577600 and input_time<1483200000;
+select count(*) from notepad   where created>=1451577600 and created<1483200000;
+select count(*) from online_pay_account  ;
+select count(*) from pay_notify   where created>=1451577600 and created<1483200000;
+select count(*) from payment;
+select count(*) from peisong_time   where arrive_time>=1451577600 and arrive_time<1483200000;
+select count(*) from printtemplate   ;
+select count(*) from purchase_goods   where input_time>=1451577600 and input_time<1483200000;
+select count(*) from purchase_goods_detail as a left join purchase_goods as b on a.purchase_goods_id=b.id  where b.input_time>=1451577600 and  b.input_time<1483200000;
+select count(*) from purchase_order   where input_time>=1451577600 and input_time<1483200000;
+SELECT COUNT(*) FROM purchase_order_detail LEFT JOIN purchase_order ON purchase_order.id = purchase_order_detail.pid WHERE purchase_order.input_time < 1483200000 and purchase_order.input_time>=1451577600;
+
+
+select count(*) from purchase_order_pay   where input_time>=1451577600 and input_time<1483200000;
+select count(*) from returned_goods   where created>=1451577600 and created<1483200000;
+SELECT COUNT(*) FROM returned_goods_detail AS a LEFT JOIN returned_goods AS b ON  a.rg_id=b.`id`     WHERE created>=1451577600 and created<1483200000;
+select count(*) from returned_purchase   where created>=1451577600 and created<1483200000;
+SELECT COUNT(*) FROM returned_purchase_detail AS a LEFT JOIN returned_purchase AS b ON  a.rp_id=b.`id`   WHERE created>=1451577600 and created<1483200000;
+select count(*) from sales_order   where created>=1451577600 and created<1483200000;
+select count(*) from sales_order_batch_pay   where created>=1451577600 and created<1483200000;
+select count(*) from sales_order_delivery_log   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from sales_order_detail   where created>=1451577600 and created<1483200000;
+select count(*) from sales_order_discount   where created>=1451577600 and created<1483200000;
+select count(*) from sales_order_log   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from sales_order_online_pay_discount   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from sales_order_summary   where created>=1451577600 and created<1483200000;
+select count(*) from sales_order_summary_goods as a left join sales_order_summary   as b on a.sales_order_summary_id=b.id    where b.created<1451577600;
+select count(*) from sales_order_summary_goods_count  as a left join sales_order_summary   as b on a.sales_order_summary_id=b.id  where b.created<1451577600;
+select count(*) from sales_standard_summary    where ctime<1451577600;
+select count(*) from shopping_car   where created>=1451577600 and created<1483200000;
+select count(*) from stock_balance   ;
+select count(*) from stock_balance_history   where input_time>=1451577600 and input_time<1483200000;
+
+select count(*) from stock_goods_associate   where create_time>=1451577600 and create_time<1483200000;
+select count(*) from stock_goods_type;
